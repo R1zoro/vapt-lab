@@ -1,0 +1,177 @@
+/* --------------------------------------------------------------
+   Global reset & helpers
+   -------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* --------------------------------------------------------------
+   Layout – header, footer & main container
+   -------------------------------------------------------------- */
+body {
+  background: #f9fafb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.07);
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e91e63;
+  text-decoration: none;
+}
+
+nav a {
+  margin-left: 1rem;
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover { color: #e91e63; }
+
+/* --------------------------------------------------------------
+   Utility classes
+   -------------------------------------------------------------- */
+.container {
+  width: min(90%, 1100px);
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.btn-primary {
+  background: #e91e63;
+  color: #fff;
+}
+.btn-primary:hover { background: #d81b60; }
+.btn-outline {
+  border: 2px solid #e91e63;
+  color: #e91e63;
+}
+.btn-outline:hover {
+  background: #e91e63;
+  color: #fff;
+}
+
+/* Form styling */
+form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+form .field {
+  margin-bottom: 1.25rem;
+}
+form label {
+  display: block;
+  margin-bottom: .4rem;
+  font-weight: 500;
+}
+form input,
+form textarea {
+  width: 100%;
+  padding: .6rem .8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: .95rem;
+}
+form textarea { resize: vertical; }
+
+/* --------------------------------------------------------------
+   Page specific sections
+   -------------------------------------------------------------- */
+
+/* Home page hero */
+.hero {
+  position: relative;
+  background: url('../img/hero.jpg') center/cover no-repeat;
+  height: 380px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+}
+.hero .content {
+  position: relative;
+  width: 100%;
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: .5rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 1.2rem; }
+
+/* Profile card */
+.profile-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  max-width: 350px;
+  margin: 2rem auto;
+}
+.profile-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.profile-card .info {
+  padding: 1rem;
+}
+.profile-card .info h2 { margin-bottom: .5rem; }
+.profile-card .info p { color: #666; }
+
+/* Footer */
+footer {
+  margin-top: auto;
+  background: #222;
+  color: #bbb;
+  text-align: center;
+  padding: 1rem;
+  font-size: .9rem;
+}
+
+/* --------------------------------------------------------------
+   Responsive tweaks
+   -------------------------------------------------------------- */
+@media (max-width: 768px) {
+  nav a { margin-left: .5rem; font-size: .9rem; }
+  .hero { height: 260px; }
+  .hero h1 { font-size: 2rem; }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up – HeartMatch</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">HeartMatch</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/discover">Discover</a>
+    <a href="/login">Login</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Create Your Account</h1>
+
+  <form action="/signup" method="POST" autocomplete="off">
+    <div class="field">
+      <label for="name">Full name</label>
+      <input type="text" id="name" name="name" placeholder="Jane Doe" required>
+    </div>
+
+    <div class="field">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="john_doe" required>
+    </div>
+
+    <div class="field">
+      <label for="pwd">Password</label>
+      <input type="password" id="pwd" name="password" placeholder="Choose a strong password" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+
+  <p style="margin-top:1rem;">
+    Already have an account? <a href="/login">Log in</a>
+  </p>
+</main>
+
+<footer>
+  &copy; 2026 HeartMatch – Demo UI only
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login – HeartMatch</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">HeartMatch</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/discover">Discover</a>
+    <a href="/signup">Sign Up</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Login</h1>
+
+  <form action="/login" method="POST" method="POST" autocomplete="off">
+    <div class="field">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="you@example.com" required>
+    </div>
+
+    <div class="field">
+      <label for="pwd">Password</label>
+      <input type="password" id="pwd" name="password" placeholder="••••••••" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Log In</button>
+  </form>
+
+  <p style="margin-top:1rem;">
+    Don't have an account? <a href="/signup">Sign up</a>
+  </p>
+</main>
+
+<footer>
+  &copy; 2026 HeartMatch – Demo UI only
+</footer>
+
+</body>
+</html>

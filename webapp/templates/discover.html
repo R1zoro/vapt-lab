@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discover – HeartMatch</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">HeartMatch</a>
+  <nav>
+    <a href="/profile">My Profile</a>
+    <a href="/login">Login</a>
+    <a href="/signup">Sign Up</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Discover New Matches</h1>
+
+  <form action="/search" method="GET">
+
+    <div class="field">
+      <label for="search-name">Name</label>
+      <input type="text" id="search-name" name="name" placeholder="e.g. Alex">
+    </div>
+
+    <div class="field">
+      <label for="search-location">Location</label>
+      <input type="text" id="search-location" name="location" placeholder="City, country">
+    </div>
+
+    <div class="field">
+      <label for="search-desc">Describe yourself</label>
+      <textarea id="search-desc" name="desc" rows="4"
+                placeholder="A short intro…"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+{% for user in results %}
+  <div class="profile-card">
+    <div class="info">
+      <h2>{{ user[1] }}</h2>
+      <p>Password: {{ user[2] }}</p>
+    </div>
+  </div>
+{% endfor %}
+
+
+  <section style="margin-top:2rem;">
+    <h2>Sample Results (static)</h2>
+    <p>In a real application the results would be populated from a database.</p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+      <div class="profile-card" style="flex:1 1 250px;">
+        <img src="https://via.placeholder.com/250x150?text=User+1" alt="User 1">
+        <div class="info">
+          <h2>Alex</h2>
+          <p>Paris, France</p>
+        </div>
+      </div>
+      <div class="profile-card" style="flex:1 1 250px;">
+        <img src="https://via.placeholder.com/250x150?text=User+2" alt="User 2">
+        <div class="info">
+          <h2>Maria</h2>
+          <p>Barcelona, Spain</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2026 HeartMatch – Demo UI only
+</footer>
+
+</body>
+</html>
