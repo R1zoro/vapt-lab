@@ -4,32 +4,32 @@ services:
     build: ./webapp
     ports:
       - "8080:80"
+    depends_on:
+      - api
+      - auth
 
   api:
     build: ./api
-    ports:
-      - "5000:5000"
+    depends_on:
+      - db
+      - internal
 
   auth:
     build: ./auth
-    ports:
-      - "5001:5001"
+    depends_on:
+      - db
 
   internal:
     build: ./internal
 
   logs:
     build: ./logs
-    ports:
-      - "5003:5003"
 
   db:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: testdb
-    ports:
-      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
