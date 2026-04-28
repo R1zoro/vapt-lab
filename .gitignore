@@ -3,3 +3,5 @@ __pycache__/
 .env
 *.log
 mysql_data/
+nginx/logs/*
+!nginx/logs/.gitkeep
